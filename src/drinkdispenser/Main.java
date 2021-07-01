@@ -90,3 +90,21 @@ public class Main {
         }
     }
 }
+
+/*
+inputs not working copy/paste
+
+2
+orange
+cherry
+2
+coke
+pepsi
+y
+1
+lime
+y
+1
+sprite
+
+*/

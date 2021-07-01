@@ -41,13 +41,13 @@ public class DrinkDispenser {
 
     public static void displayShots() {
         for (int i = 0; i < shots.size(); i++) {
-            System.out.println("Shot: " + shots.get(i).name + ", amount left" + shots.get(i).currentAmount + ", index: " + i);
+            System.out.println("Shot: " + shots.get(i).name + ", amount left: " + shots.get(i).currentAmount + ", index: " + i);
         }
     }
 
     public static void displaySyrups() {
         for (int i = 0; i < syrups.size(); i++) {
-            System.out.println("Syrup: " + syrups.get(i).drinkName + ", amount left" + syrups.get(i).liqAmount + ", index: " + i);
+            System.out.println("Syrup: " + syrups.get(i).drinkName + ", amount left: " + syrups.get(i).liqAmount + ", index: " + i);
         }
     }
 

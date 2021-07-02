@@ -98,8 +98,12 @@ public class DrinkDispenser {
             case "small":
                 if (syrups.get(syrupIndex).liqAmount > 1) {
                     syrups.get(syrupIndex).liqAmount -= 1;
-                    System.out.println("How many of these drinks would you like?");
+                    System.out.println("How many of these drinks would you like? 1-4");
                     int cupAmount = sc.nextInt();
+                    if (cupAmount < 1 || cupAmount > 4) {
+                        System.out.println("smh");
+                        break;
+                    }
                     sc.nextLine();
                     cupHolders.add(new CupHolder("small", cupAmount));
                 } else {
@@ -112,6 +116,10 @@ public class DrinkDispenser {
                     System.out.println("How many of these drinks would you like?");
                     int cupAmount = sc.nextInt();
                     sc.nextLine();
+                    if (cupAmount < 1 || cupAmount > 4) {
+                        System.out.println("smh");
+                        break;
+                    }
                     cupHolders.add(new CupHolder("medium", cupAmount));
                 } else {
                     System.out.println("Not enough syrup, sorry.");
@@ -123,6 +131,10 @@ public class DrinkDispenser {
                     System.out.println("How many of these drinks would you like?");
                     int cupAmount = sc.nextInt();
                     sc.nextLine();
+                    if (cupAmount < 1 || cupAmount > 4) {
+                        System.out.println("smh");
+                        break;
+                    }
                     cupHolders.add(new CupHolder("large", cupAmount));
                 } else {
                     System.out.println("Not enough syrup, sorry.");

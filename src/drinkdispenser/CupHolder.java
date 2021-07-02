@@ -2,11 +2,11 @@ package drinkdispenser;
 
 public class CupHolder {
 
-    String volumeAmount;
+    String volume;
     int quantity;
 
-    public CupHolder(String volumeAmount, int quantity) {
-        this.volumeAmount = volumeAmount;
+    public CupHolder(String volume, int quantity) {
+        this.volume = volume;
         this.quantity = quantity;
     }
 

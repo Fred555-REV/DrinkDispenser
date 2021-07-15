@@ -86,6 +86,19 @@ public class Main {
                     break;
                 case "y":
 
+                    DrinkDispenser.displaySyrups();
+                    System.out.println("Which syrup flavor would you like? enter index");
+                    int syrupIndex = scan.nextInt();
+
+                    DrinkDispenser.displayShots();
+                    System.out.println("Which shot flavor would you like? enter index");
+                    int shotIndex = scan.nextInt();
+                    System.out.println("how many " + DrinkDispenser.shots.get(shotIndex).name + " shots would you like?");
+                    int shotCount = scan.nextInt();
+                    System.out.println("Which size so you want? small/medium/large");
+                    String sizeY = scan.nextLine();
+
+                    DrinkDispenser.ServeDrink(sizeY, syrupIndex, shotIndex, shotCount);
             }
         }
     }

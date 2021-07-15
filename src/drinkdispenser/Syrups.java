@@ -2,11 +2,11 @@ package drinkdispenser;
 
 public class Syrups {
     String drinkName;
-    int liqAmount;
+    int volume;
 
-    public Syrups(String drinkName, int liqAmount) {
+    public Syrups(String drinkName, int volume) {
         this.drinkName = drinkName;
-        this.liqAmount = liqAmount;
+        this.volume = volume;
     }
 
     public static void dispense() {

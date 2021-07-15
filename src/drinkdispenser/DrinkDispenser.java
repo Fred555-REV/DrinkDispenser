@@ -54,9 +54,9 @@ public class DrinkDispenser {
     public static void ServeDrink(String size, int syrupIndex) {
         switch (size.toLowerCase(Locale.ROOT)) {
             case "small":
-                    System.out.println("How many of these drinks would you like?");
-                    int cupAmountS = sc.nextInt();
-                    sc.nextLine();
+                System.out.println("How many of these drinks would you like?");
+                int cupAmountS = sc.nextInt();
+                sc.nextLine();
                 if (syrups.get(syrupIndex).volume > 1 * cupAmountS) {
                     syrups.get(syrupIndex).volume -= 1 * cupAmountS;
                     cupHolders.add(new CupHolder("small", cupAmountS));
@@ -66,9 +66,9 @@ public class DrinkDispenser {
                 }
                 break;
             case "medium":
-                    System.out.println("How many of these drinks would you like?");
-                    int cupAmountM = sc.nextInt();
-                    sc.nextLine();
+                System.out.println("How many of these drinks would you like?");
+                int cupAmountM = sc.nextInt();
+                sc.nextLine();
                 if (syrups.get(syrupIndex).volume > 2 * cupAmountM) {
                     syrups.get(syrupIndex).volume -= 2 * cupAmountM;
                     cupHolders.add(new CupHolder("medium", cupAmountM));
@@ -78,15 +78,15 @@ public class DrinkDispenser {
                 }
                 break;
             case "large":
-                    System.out.println("How many of these drinks would you like?");
-                    int cupAmountL = sc.nextInt();
-                    sc.nextLine();
+                System.out.println("How many of these drinks would you like?");
+                int cupAmountL = sc.nextInt();
+                sc.nextLine();
                 if (syrups.get(syrupIndex).volume > 4 * cupAmountL) {
                     syrups.get(syrupIndex).volume -= 4 * cupAmountL;
                     cupHolders.add(new CupHolder("large", cupAmountL));
                     System.out.println(cupAmountL + " large cups of " + syrups.get(syrupIndex).drinkName + " made.");
                 } else {
-                    System.out.println("Not enough syrup, sorry.");
+                    System.out.println("Not enough syrup, refill.");
                 }
                 break;
         }
@@ -96,46 +96,44 @@ public class DrinkDispenser {
     public static void ServeDrink(String size, int syrupIndex, int shotIndex, int shotCount) {
         switch (size.toLowerCase(Locale.ROOT)) {
             case "small":
-                if (syrups.get(syrupIndex).volume > 1) {
-                    syrups.get(syrupIndex).volume -= 1;
-                    System.out.println("How many of these drinks would you like? 1-4");
-                    int cupAmount = sc.nextInt();
-                    if (cupAmount < 1 || cupAmount > 4) {
-                        System.out.println("smh");
-                        break;
-                    }
-                    sc.nextLine();
-                    cupHolders.add(new CupHolder("small", cupAmount));
+                System.out.println("How many of these drinks would you like?");
+                int cupAmountS = sc.nextInt();
+                sc.nextLine();
+                if (syrups.get(syrupIndex).volume > cupAmountS && shots.get(shotIndex).currentAmount > shotCount) {
+                    syrups.get(syrupIndex).volume -= cupAmountS;
+                    shots.get(shotIndex).currentAmount -= shotCount;
+                    cupHolders.add(new CupHolder("small", cupAmountS));
+                    System.out.println(cupAmountS + " small cups of " + syrups.get(syrupIndex).drinkName + " with " + shots.get(shotIndex).name + " made.");
+                } else if (syrups.get(syrupIndex).volume < cupAmountS) {
+                    System.out.println("Not enough syrup, refill.");
+                } else if (shots.get(shotIndex).currentAmount < shotCount) {
+                    System.out.println("Not enough shot liquid, refill.");
                 } else {
-                    System.out.println("Not enough syrup, sorry.");
+                    System.out.println("Error technician assistance required");
                 }
                 break;
             case "medium":
-                if (syrups.get(syrupIndex).volume > 2) {
-                    syrups.get(syrupIndex).volume -= 2;
-                    System.out.println("How many of these drinks would you like?");
-                    int cupAmount = sc.nextInt();
-                    sc.nextLine();
-                    if (cupAmount < 1 || cupAmount > 4) {
-                        System.out.println("smh");
-                        break;
-                    }
-                    cupHolders.add(new CupHolder("medium", cupAmount));
+                System.out.println("How many of these drinks would you like?");
+                int cupAmountM = sc.nextInt();
+                sc.nextLine();
+                if (syrups.get(syrupIndex).volume > 2 * cupAmountM && shots.get(shotIndex).currentAmount > shotCount) {
+                    syrups.get(syrupIndex).volume -= 2 * cupAmountM;
+                    shots.get(shotIndex).currentAmount -= shotCount;
+                    cupHolders.add(new CupHolder("medium", cupAmountM));
+                    System.out.println(cupAmountM + " medium cups of " + syrups.get(syrupIndex).drinkName + " with " + shots.get(shotIndex).name + " made.");
                 } else {
                     System.out.println("Not enough syrup, sorry.");
                 }
                 break;
             case "large":
-                if (syrups.get(syrupIndex).volume > 4) {
-                    syrups.get(syrupIndex).volume -= 4;
-                    System.out.println("How many of these drinks would you like?");
-                    int cupAmount = sc.nextInt();
-                    sc.nextLine();
-                    if (cupAmount < 1 || cupAmount > 4) {
-                        System.out.println("smh");
-                        break;
-                    }
-                    cupHolders.add(new CupHolder("large", cupAmount));
+                System.out.println("How many of these drinks would you like?");
+                int cupAmountL = sc.nextInt();
+                sc.nextLine();
+                if (syrups.get(syrupIndex).volume > 4 * cupAmountL && shots.get(shotIndex).currentAmount > shotCount) {
+                    syrups.get(syrupIndex).volume -= 4 * cupAmountL;
+                    shots.get(shotIndex).currentAmount -= shotCount;
+                    cupHolders.add(new CupHolder("large", cupAmountL));
+                    System.out.println(cupAmountL + " large cups of " + syrups.get(syrupIndex).drinkName + " with " + shots.get(shotIndex).name + " made.");
                 } else {
                     System.out.println("Not enough syrup, sorry.");
                 }
